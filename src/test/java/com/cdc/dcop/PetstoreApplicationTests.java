@@ -12,5 +12,10 @@ public class PetstoreApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
+	
+	@Test
+	public void saludo() {
+		System.out.println("hola java");
+	}
 
 }
