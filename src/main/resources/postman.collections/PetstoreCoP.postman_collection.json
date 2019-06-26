@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "78115564-09e7-4116-9154-4862e5783bc1",
+		"name": "Petstore CoP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add a new pet to the store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "718fcc67-4491-46a2-831b-4fe75d89dab6",
+						"exec": [
+							"var schema = {",
+							"    \"items\": {",
+							"        \"type\": \"object\",",
+							"        \"properties\": {",
+							"            \"id\": { ",
+							"                \"type\": \"integer\" ",
+							"            },",
+							"            \"category\": { ",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"id\": { ",
+							"                        \"type\": \"integer\" ",
+							"                    },",
+							"                    \"name\": { ",
+							"                        \"type\": \"string\" ",
+							"                    }",
+							"                }",
+							"            },",
+							"            \"name\": { ",
+							"                \"type\": \"string\" ",
+							"            },",
+							"            \"photoUrls\": { ",
+							"                \"type\": \"array\",",
+							"                \"properties\":{",
+							"                    \"type\": \"string\"",
+							"                }",
+							"            },",
+							"            \"tags\": { ",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"id\": { ",
+							"                        \"type\": \"integer\" ",
+							"                    },",
+							"                    \"name\": { ",
+							"                        \"type\": \"string\" ",
+							"                    }",
+							"                }",
+							"            },",
+							"            \"status\": { ",
+							"                \"type\": \"string\" ",
+							"            },",
+							"            \"required\": [ \"id\", \"category\", \"name\", \"photoUrls\", \"tags\", \"status\"]",
+							"        }",
+							"    }",
+							"};",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(JSON.parse(responseBody), schema)).to.be.true;",
+							"  console.log(tv4.error);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1, \n\t\"category\": { \n\t\t\"id\": 1, \n\t\t\"name\": \"robin\" \n\t\t\n\t}, \n\t\"name\": \"doggie\",\n\t\"photoUrls\": [ \n\t\t\"robin.png\" \n\t], \n\t\"tags\": [{ \n\t\t\t\"id\": 1, \n\t\t\t\"name\": \"dog\" \n\t\t\t\n\t}], \n\t\"status\": \"available\"\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb9975b0-e0c0-40cb-806c-b1fb6912c449",
+						"exec": [
+							"var schema = {",
+							"    \"items\": {",
+							"        \"type\": \"object\",",
+							"        \"properties\": {",
+							"            \"id\": { ",
+							"                \"type\": \"integer\" ",
+							"            },",
+							"            \"category\": { ",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"id\": { ",
+							"                        \"type\": \"integer\" ",
+							"                    },",
+							"                    \"name\": { ",
+							"                        \"type\": \"string\" ",
+							"                    }",
+							"                }",
+							"            },",
+							"            \"name\": { ",
+							"                \"type\": \"string\" ",
+							"            },",
+							"            \"photoUrls\": { ",
+							"                \"type\": \"array\",",
+							"                \"properties\":{",
+							"                    \"type\": \"string\"",
+							"                }",
+							"            },",
+							"            \"tags\": { ",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"id\": { ",
+							"                        \"type\": \"integer\" ",
+							"                    },",
+							"                    \"name\": { ",
+							"                        \"type\": \"string\" ",
+							"                    }",
+							"                }",
+							"            },",
+							"            \"status\": { ",
+							"                \"type\": \"string\" ",
+							"            },",
+							"            \"required\": [ \"id\", \"category\", \"name\", \"photoUrls\", \"tags\", \"status\"]",
+							"        }",
+							"    }",
+							"};",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(JSON.parse(responseBody), schema)).to.be.true;",
+							"  console.log(tv4.error);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"id\": 0,\n\t\"category\": {\n\t\t\"id\": 0, \n\t\t\"name\": \"string\"\n\t},\n\t\"name\": \"doggie\", \n\t\"photoUrls\": [ \n\t\t\"string\"\n\t],\n\t\"tags\": [ { \n\t\t\"id\": 0, \n\t\t\"name\": \"string\"\n\t} ],\n\t\"status\": \"available\"\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
