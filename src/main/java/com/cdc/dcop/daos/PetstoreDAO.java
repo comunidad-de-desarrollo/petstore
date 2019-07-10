@@ -1,12 +1,9 @@
 package com.cdc.dcop.daos;
 
-import java.util.ArrayList;
-
+import com.cdc.dcop.models.*;
 import org.springframework.stereotype.Repository;
 
-import com.cdc.dcop.models.Category;
-import com.cdc.dcop.models.Pet;
-import com.cdc.dcop.models.Tag;
+import java.util.ArrayList;
 
 @Repository
 public class PetstoreDAO implements IPetstoreDAO {

@@ -1,136 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.cdc.dcop</groupId>
-	<artifactId>petstore</artifactId>
-	<version>0.0.1</version>
-	<packaging>jar</packaging>
+    <groupId>com.cdc.dcop</groupId>
+    <artifactId>petstore</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
 
-	<name>petstore</name>
-	<description>Prueba para la comunidad de practica</description>
+    <name>petstore</name>
+    <description>Prueba para la comunidad de practica</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+    </properties>
 
-	<dependencies>
-		<!-- ######################################################### -->
-		<!-- Dependencias "Spring" -->
-		<!-- ######################################################### -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<!-- Servidor de Configuraciones -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
+    <dependencies>
+        <!-- ######################################################### -->
+        <!-- Dependencias "Spring" -->
+        <!-- ######################################################### -->
 
-		<!-- ######################################################### -->
-		<!-- Dependencias "LOCALES" -->
-		<!-- ######################################################### -->
-		<dependency>
-			<groupId>com.cdc</groupId>
-			<artifactId>utility</artifactId>
-			<version>0.1.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.cdc.pdmx</groupId>
-			<artifactId>commons</artifactId>
-			<version>0.1.3</version>
-		</dependency>
-		<dependency>
-           <groupId>com.cdc</groupId>
-           <artifactId>utility-permission</artifactId>
-           <version>0.0.6</version>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- Servidor de Configuraciones -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
 
-		<!-- ######################################################### -->
-		<!-- Dependencias "EXTERNAS" -->
-		<!-- ######################################################### -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.9.2</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.9.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
-		<dependency>
-		    <groupId>org.eclipse.jgit</groupId>
-		    <artifactId>org.eclipse.jgit</artifactId>
-		</dependency>
-		<!-- ######################################################### -->
-		<!-- "Base_de_Datos" -->
-		<!-- ######################################################### -->
-		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		    <scope>runtime</scope>
-		</dependency>
-		<!-- ######################################################### -->
-		<!-- Scope "TEST" -->
-		<!-- ######################################################### -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>	
-	</dependencies>
-	
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+        <!-- ######################################################### -->
+        <!-- Dependencias "LOCALES" -->
+        <!-- ######################################################### -->
+        <dependency>
+            <groupId>com.cdc</groupId>
+            <artifactId>utility</artifactId>
+            <version>0.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cdc.pdmx</groupId>
+            <artifactId>commons</artifactId>
+            <version>0.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cdc</groupId>
+            <artifactId>utility-permission</artifactId>
+            <version>0.0.6</version>
+        </dependency>
 
-	<repositories>		
-		<repository>
-			<id>repo.circulodecredito.com</id>
-			<url>s3://circulodecredito-apidev-code/release</url>
-		</repository>
-	</repositories>
-	
-	<build>
-		<finalName>petstore</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-		<extensions>
-			<extension>
-				<groupId>org.kuali.maven.wagons</groupId>
-				<artifactId>maven-s3-wagon</artifactId>
-				<version>1.2.1</version>
-			</extension>
-		</extensions>
-	</build>
+        <!-- ######################################################### -->
+        <!-- Dependencias "EXTERNAS" -->
+        <!-- ######################################################### -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!-- ######################################################### -->
+        <!-- "Base_de_Datos" -->
+        <!-- ######################################################### -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- ######################################################### -->
+        <!-- Scope "TEST" -->
+        <!-- ######################################################### -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>repo.circulodecredito.com</id>
+            <url>s3://circulodecredito-apidev-code/release</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <finalName>petstore</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.kuali.maven.wagons</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>1.2.1</version>
+            </extension>
+        </extensions>
+    </build>
 </project>
