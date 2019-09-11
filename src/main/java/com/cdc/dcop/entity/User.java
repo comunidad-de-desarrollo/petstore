@@ -5,8 +5,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Data
@@ -17,7 +17,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 8512520820418639813L;
 
 	@Id
-	@GeneratedValue
+    @SequenceGenerator(name = "COP_USUARIOS_SEQ", sequenceName = "COP_USUARIOS_SEQ", allocationSize = 1)
 	@Column(name="CVE_USUARIO")
 	private Long id;
 
@@ -39,6 +39,6 @@ public class User implements Serializable {
 	@Column(name="NUM_TELEFONO")
 	private String phone;
 
-	@Column(name="CVE_STATUS")
+	@Column(name="CVE_ESTATUS")
 	private Integer userStatus;
 }

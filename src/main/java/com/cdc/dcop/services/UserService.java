@@ -24,6 +24,7 @@ public class UserService {
     public UserDTO create(UserDTO userDTO) {
         User entity = mapper.map(userDTO, User.class);
         entity = userRepository.save(entity);
+        
         return mapper.map(entity, UserDTO.class);
     }
 

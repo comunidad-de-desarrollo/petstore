@@ -4,6 +4,8 @@ import com.cdc.dcop.dto.UserDTO;
 import com.cdc.dcop.services.UserService;
 import com.cdc.utility.controller.BaseController;
 import com.cdc.utility.model.dto.request.GenericResponse;
+import com.cdc.utility.model.dto.request.SuccessMessage;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +33,12 @@ public class UserController {
     public GenericResponse<UserDTO> create(@Valid @RequestBody UserDTO userDTO) {
         /* validación dto, revisar dónde es mejor validar */
         UserDTO response = userService.create(userDTO);
-        return BaseController.getResponse(true, null, null, response, HttpStatus.OK);
+        SuccessMessage s = new SuccessMessage("ACCEPTED", "USER ADDED");
+        
+        return BaseController.getResponse(true, null, s, response, HttpStatus.ACCEPTED);
+        //return BaseController.success(response, "OK", "AGREGADO CORRECTAMENTE");
     }
-
+    
     //13 - 14
     @ApiOperation("Creates list of users with given input list")
     @PostMapping("/createWithList")
