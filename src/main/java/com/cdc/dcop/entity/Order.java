@@ -1,89 +1,40 @@
 package com.cdc.dcop.entity;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name = "Orders")
+@Table(name = "COPT_ORDEN")
 public class Order implements Serializable {
 
-    private static final long serialVersionUID = -8925629198146835353L;
+	private static final long serialVersionUID = -8925629198146835353L;
 
-   @Id
-   @GeneratedValue
-   private Long id;
+	@Id
+	@GeneratedValue
+	@Column(name="CVE_ORDEN")
+	private Long id;
+	
+	@Column(name="CVE_MASCOTA")
+	private Long petId;
 
-    private Long petId;
+	@Column(name="CAN_CANTIDAD")
+	private Integer quantity;
 
-    private Integer quantity;
+	@Column(name="STP_ENVIO")
+	private LocalDate shipDate;
 
-    private LocalDate shipDate;
+	@Column(name="REF_STATUS")
+	private String status;
 
-    private String status;
-
-    private Boolean complete;
-
-    private Boolean active;
-
-    public Order(Long id) {
-        this.id = id;
-        this.active = true;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getPetId() {
-        return petId;
-    }
-
-    public void setPetId(Long petId) {
-        this.petId = petId;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public LocalDate getShipDate() {
-        return shipDate;
-    }
-
-    public void setShipDate(LocalDate shipDate) {
-        this.shipDate = shipDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Boolean getComplete() {
-        return complete;
-    }
-
-    public void setComplete(Boolean complete) {
-        this.complete = complete;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
+	@Column(name="COMPLETADO")
+	private Boolean complete;
 }

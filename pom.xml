@@ -52,17 +52,6 @@
             <artifactId>utility</artifactId>
             <version>0.1.3</version>
         </dependency>
-        <dependency>
-            <groupId>com.cdc.pdmx</groupId>
-            <artifactId>commons</artifactId>
-            <version>0.1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.cdc</groupId>
-            <artifactId>utility-permission</artifactId>
-            <version>0.0.6</version>
-        </dependency>
-
         <!-- ######################################################### -->
         <!-- Dependencias "EXTERNAS" -->
         <!-- ######################################################### -->
@@ -86,17 +75,34 @@
             <artifactId>org.eclipse.jgit</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>2.3.0</version>
-        </dependency>
+		    <groupId>org.modelmapper</groupId>
+		    <artifactId>modelmapper</artifactId>
+		    <version>2.3.2</version>
+		</dependency>
         <!-- ######################################################### -->
         <!-- "Base_de_Datos" -->
         <!-- ######################################################### -->
+        <!-- DEPENDENCIAS PARA EL OJDBC DE ORACLE  -->
+		<dependency>
+   			<groupId>com.oracle</groupId>
+   			<artifactId>ojdbc7</artifactId>
+   			<version>12.1.0.2</version>
+		</dependency>
+		<!-- DEPENDENCIA PARA EL JPA -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+       <!-- DEPENDENCIA PARA EL HIKARI -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
         </dependency>
         <!-- ######################################################### -->
         <!-- Scope "TEST" -->

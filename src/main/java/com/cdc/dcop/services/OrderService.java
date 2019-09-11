@@ -17,7 +17,6 @@ public class OrderService {
         boolean deleted = false;
         Order entity = orderRepository.findById(orderId).orElse(null);
         if (entity != null) {
-            entity.setActive(false);
             orderRepository.save(entity);
             deleted = true;
         }
