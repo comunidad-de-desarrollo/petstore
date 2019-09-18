@@ -1,26 +1,34 @@
 package com.cdc.dcop.services;
 
-import com.cdc.dcop.daos.IPetstoreDAO;
-import com.cdc.dcop.models.Pet;
+import com.cdc.dcop.entity.Pet;
+import com.cdc.dcop.repository.PetRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PetstoreService implements IPetstoreService {
+public class PetstoreService {
 
     @Autowired
-    private IPetstoreDAO petstoreDAO;
+    private PetRepository petRepository;
+    
 
-    @Override
-    public Pet findById(int id) {
-        return petstoreDAO.findById(id);
+	public Pet savePet(Pet pet) {
+		return petRepository.save(pet);
+	}
+	
+	public Pet updatePet(Pet pet) {
+		return petRepository.updatePet(pet);
+	}
+
+   
+    public Pet findById(Long id) {
+        return petRepository.findById(id).orElse(null);
     }
 
-    @Override
+
     public Pet findByStatus(String status) {
-        return petstoreDAO.findByStatus(status);
+        return petRepository.findByStatus(status);
     }
-
-
 
 }
