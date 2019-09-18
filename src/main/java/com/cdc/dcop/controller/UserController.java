@@ -35,7 +35,7 @@ public class UserController {
         UserDTO response = userService.create(userDTO);
         SuccessMessage s = new SuccessMessage("ACCEPTED", "USER ADDED");
         
-        return BaseController.getResponse(true, null, s, response, HttpStatus.ACCEPTED);
+        return BaseController.getResponse(true, null, s, response, HttpStatus.CREATED);
         //return BaseController.success(response, "OK", "AGREGADO CORRECTAMENTE");
     }
     
