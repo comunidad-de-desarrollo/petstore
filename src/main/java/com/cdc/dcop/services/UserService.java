@@ -45,4 +45,36 @@ public class UserService {
         User entity = userRepository.findByUsernameAndPassword(username, password).orElse(null);
         return entity != null;
     }
+    
+    public Boolean logout(String session) {
+        //User entity = userRepository.findByUsernameAndPassword(username, password).orElse(null);
+    	System.out.println("Session " + session + " logout");
+        return true;
+    }
+    
+    public UserDTO username(String username) {
+    	User user = userRepository.findByUsername(username).orElse(null);
+    	return mapper.map(user, UserDTO.class);
+    }
+    
+    public boolean updateUser(String username, UserDTO updatedUser) {
+    	User user = userRepository.findByUsername(username).orElse(null);
+    	if (user != null) {
+    		User entity = mapper.map(updatedUser, User.class);
+            entity = userRepository.save(entity);
+            
+            return true;
+    	}
+    	return false;
+    }
+    
+    public boolean delete(String username) {
+    	User user = userRepository.findByUsername(username).orElse(null);
+    	if (user != null) {
+    		User entity = mapper.map(user, User.class);
+    		userRepository.delete(entity);
+    		return true;
+    	}
+    	return false;
+    }
 }
