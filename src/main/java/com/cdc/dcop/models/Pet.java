@@ -1,8 +1,8 @@
 package com.cdc.dcop.models;
 
-import java.util.ArrayList;
-
 import lombok.Data;
+
+import java.util.ArrayList;
 
 @Data
 public class Pet {
