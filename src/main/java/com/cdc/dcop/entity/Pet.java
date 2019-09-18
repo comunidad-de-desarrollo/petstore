@@ -12,14 +12,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "COPT_MASCOTA")
+@Table(name = "COPT_MASCOTAS")
 public class Pet implements Serializable {
 
 	private static final long serialVersionUID = 4060148759780081521L;
 	
 	@Id
 	@GeneratedValue
-	@Column(name="CVE_USUARIO")
+	@Column(name="CVE_MASCOTA")
 	private Long id;
 
 	@Column(name="CVE_CATEGORIA")

@@ -41,13 +41,5 @@ public class PetstoreController {
         return response;
     }
 
-    // Buscar Macota por id
-    @GetMapping(value = "/pet/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> findById(@PathVariable int id) {
-        ResponseEntity<Object> response = null;
-        Pet pet = petstoreService.findById(id);
-        response = u.buildResponseEntity(HttpStatus.OK, pet);
-        return response;
-    }
 
 }
