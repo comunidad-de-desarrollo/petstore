@@ -3,6 +3,7 @@ package com.cdc.dcop.services;
 import com.cdc.dcop.dto.UserDTO;
 import com.cdc.dcop.entity.User;
 import com.cdc.dcop.repository.UserRepository;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class UserService {
     public UserDTO create(UserDTO userDTO) {
         User entity = mapper.map(userDTO, User.class);
         entity = userRepository.save(entity);
+        
         return mapper.map(entity, UserDTO.class);
     }
 

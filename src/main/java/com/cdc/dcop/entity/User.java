@@ -1,94 +1,44 @@
 package com.cdc.dcop.entity;
 
-
-import javax.persistence.*;
+import lombok.Data;
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Data
 @Entity
-@Table(name = "Users")
+@Table(name = "COPT_USUARIOS")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 8512520820418639813L;
 
 	@Id
-	@GeneratedValue
+    @SequenceGenerator(name = "COP_USUARIOS_SEQ", sequenceName = "COP_USUARIOS_SEQ", allocationSize = 1)
+	@Column(name="CVE_USUARIO")
 	private Long id;
 
+	@Column(name="REF_USUARIO")
 	private String username;
 
+	@Column(name="NOM_NOMBRE")
 	private String firstName;
 
+	@Column(name="NOM_APELLIDO")
 	private String lastName;
 
+	@Column(name="REF_CORREO")
 	private String email;
 
+	@Column(name="REF_CONTRASENIA")
 	private String password;
 
+	@Column(name="NUM_TELEFONO")
 	private String phone;
 
+	@Column(name="CVE_ESTATUS")
 	private Integer userStatus;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public Integer getUserStatus() {
-		return userStatus;
-	}
-
-	public void setUserStatus(Integer userStatus) {
-		this.userStatus = userStatus;
-	}
 }
