@@ -1,6 +1,6 @@
 package com.cdc.dcop.utils;
 
-import com.cdc.dcop.models.Pet;
+import com.cdc.dcop.entity.Pet;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

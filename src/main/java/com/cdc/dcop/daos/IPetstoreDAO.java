@@ -1,11 +1,11 @@
 package com.cdc.dcop.daos;
 
-import com.cdc.dcop.models.Pet;
+import com.cdc.dcop.entity.Pet;
 
 public interface IPetstoreDAO {
 	
-	public Pet findById(int id);
+	Pet findById(Long id);
 	
-	public Pet findByStatus(String status);
+	Pet findByStatus(String status);
 
 }
