@@ -21,6 +21,4 @@ public class PetstoreService implements IPetstoreService {
         return petstoreDAO.findByStatus(status);
     }
 
-
-
 }
