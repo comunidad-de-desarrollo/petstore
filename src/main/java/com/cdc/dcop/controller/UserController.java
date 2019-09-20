@@ -65,4 +65,56 @@ public class UserController {
         return BaseController.getResponse(true, null, null, response, HttpStatus.OK);
 
     }
+    
+  //16
+    @ApiOperation("Logs user out of the system")
+    @GetMapping("/logout")
+    public GenericResponse<Boolean> logout(@RequestParam String session) {
+        Boolean loggedOut = userService.logout(session);
+        HttpStatus httpStatus = HttpStatus.OK;
+        if (!loggedOut) {
+            httpStatus = HttpStatus.BAD_REQUEST;
+        }
+        return BaseController.getResponse(true, null, null, loggedOut, httpStatus);
+
+    }
+    
+  //17
+    @ApiOperation("Search by username")
+    @GetMapping("/username")
+    public GenericResponse<UserDTO> username(@RequestParam String username) {
+    	UserDTO user = userService.username(username);
+        HttpStatus httpStatus = HttpStatus.OK;
+        if (user == null) {
+            httpStatus = HttpStatus.BAD_REQUEST;
+        }
+        return BaseController.getResponse(true, null, null, user, httpStatus);
+
+    }
+    
+  //18
+    @ApiOperation("Search by username")
+    @PostMapping("/username")
+    public GenericResponse<Boolean> usernameUpdate(@RequestParam String username, @RequestParam UserDTO user) {
+    	boolean updated = userService.updateUser(username, user);
+        HttpStatus httpStatus = HttpStatus.OK;
+        if (!updated) {
+            httpStatus = HttpStatus.BAD_REQUEST;
+        }
+        return BaseController.getResponse(true, null, null, updated, httpStatus);
+
+    }
+    
+  //19
+    @ApiOperation("Search by username")
+    @GetMapping("/delete/username")
+    public GenericResponse<Boolean> delete(@RequestParam String username) {
+    	boolean deleted = userService.delete(username);
+        HttpStatus httpStatus = HttpStatus.OK;
+        if (!deleted) {
+            httpStatus = HttpStatus.BAD_REQUEST;
+        }
+        return BaseController.getResponse(true, null, null, deleted, httpStatus);
+
+    }
 }

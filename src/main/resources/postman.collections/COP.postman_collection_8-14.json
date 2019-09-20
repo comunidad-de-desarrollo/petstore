@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "9e620712-ef6f-422d-b56f-6eb5e1d60160",
+		"name": "COP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://petstore.swagger.io/v2/user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "880facd9-d463-45e6-acc2-7e5feac42060",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"    \"items\": {",
+							"  \"code\": {",
+							"    \"type\": \"integer\"",
+							"  },",
+							"  \"type\": {",
+							"    \"type\": \"string\"",
+							"  },",
+							"  \"message\": {",
+							"    \"type\": \"string\"",
+							"  }",
+							"    }",
+							"};",
+							"",
+							"var data1 = [0, \"unknown\", \"something bad happened\"];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": 0, \"username\": \"holamundo\", \"firstName\": \"juan\", \"lastName\": \"perez\", \"email\": \"holamundo@hola.com\", \"password\": \"holamundosecreto\", \"phone\": \"55551234\", \"userStatus\": 0}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://petstore.swagger.io/v2/pet/1/uploadImage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d933fa42-85eb-45bf-b603-d6c060e80f03",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"  \"items\": {",
+							"    \"code\": \"integer\",",
+							"    \"type\": \"string\",",
+							"    \"message\": \"string\"",
+							"  }",
+							"};",
+							"",
+							"var data1 = [0, \"unknown\", \"something bad happened\"];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet/1/uploadImage",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet",
+						"1",
+						"uploadImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://petstore.swagger.io/v2/store/inventory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3919b7ea-9b08-40a6-8f67-8f05636524a1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"  \"items\": {",
+							"    \"type\": \"boolean\"",
+							"  }",
+							"};",
+							"",
+							"var data1 = [true, false];",
+							"var data2 = [true, 123];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"  pm.expect(tv4.validate(data2, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/inventory",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://petstore.swagger.io/v2/store/order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e619cce3-8a3c-4111-935c-c4bbd4754470",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"  \"complete\": {",
+							"    \"type\": \"integer\"",
+							"  },",
+							"  \"id\": {",
+							"      \"type\": \"integer\"",
+							"  },",
+							"  \"petId\": {",
+							"      \"type\": \"integer\"",
+							"  },",
+							"  \"quantity\": {",
+							"      \"type\": \"integer\"",
+							"  },",
+							"  \"shipDate\": {",
+							"      \"type\": \"string\"",
+							"  },",
+							"  \"status\": {",
+							"      \"type\": \"string\"",
+							"  }",
+							"};",
+							"",
+							"var data1 = [true, false, true];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": 0, \"petId\": 0, \"quantity\": 0, \"shipDate\": \"2019-06-26T21:27:29.971Z\", \"status\": \"placed\", \"complete\": false}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://petstore.swagger.io/v2/store/order/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "693be9de-ffc3-4ad2-92b7-452801f47569",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"  \"complete\": {",
+							"    \"type\": \"integer\"",
+							"  },",
+							"  \"id\": {",
+							"      \"type\": \"integer\"",
+							"  },",
+							"  \"petId\": {",
+							"      \"type\": \"integer\"",
+							"  },",
+							"  \"quantity\": {",
+							"      \"type\": \"integer\"",
+							"  },",
+							"  \"shipDate\": {",
+							"      \"type\": \"string\"",
+							"  },",
+							"  \"status\": {",
+							"      \"type\": \"string\"",
+							"  }",
+							"};",
+							"",
+							"var data1 = [true, false];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order/1",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://petstore.swagger.io/v2/user/createWithArray",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8350fab8-5a7f-484c-a505-c49e1deeb4f5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"  \"items\": { \"id\": 0, ",
+							"        \"username\": \"string\", ",
+							"        \"firstName\": \"string\", ",
+							"        \"lastName\": \"string\", ",
+							"        \"email\": \"string\", ",
+							"        \"password\": \"string\", ",
+							"        \"phone\": \"string\", ",
+							"        \"userStatus\": \"integer\" ",
+							"  }",
+							"};",
+							"",
+							"",
+							"var data1 = [true, false];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[ { \"id\": 0, \"username\": \"string\", \"firstName\": \"string\", \"lastName\": \"string\", \"email\": \"string\", \"password\": \"string\", \"phone\": \"string\", \"userStatus\": 0 }]"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/createWithArray",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"createWithArray"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://petstore.swagger.io/v2/store/order/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "936f0bb0-59c0-494b-8aab-a213ecff8cb3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var schema = {",
+							"  \"items\": {",
+							"    \"id\": \"integer\"",
+							"  }",
+							"};",
+							"",
+							"var data1 = [true, false];",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order/1",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
