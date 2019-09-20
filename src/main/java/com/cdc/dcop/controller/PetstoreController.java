@@ -1,25 +1,27 @@
 package com.cdc.dcop.controller;
 
-import com.cdc.dcop.models.Pet;
-import com.cdc.dcop.services.IPetstoreService;
+
+import com.cdc.dcop.entity.Pet;
+import com.cdc.dcop.services.PetstoreService;
 import com.cdc.dcop.utils.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/petstore")
+@RequestMapping("/pet")
 public class PetstoreController {
 
     Utilities u = new Utilities();
 
     @Autowired
-    private IPetstoreService petstoreService;
+    private PetstoreService petstoreService;
 
     // Agregar Mascota
     @PostMapping(value = "/pet", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> create(@RequestBody Pet pet) {
         ResponseEntity<Object> response = null;
+        petstoreService.savePet(pet);
         response = u.buildResponseEntity(HttpStatus.CREATED, pet);
         return response;
     }
@@ -28,6 +30,7 @@ public class PetstoreController {
     @PutMapping(value = "/pet", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> update(@RequestBody Pet pet) {
         ResponseEntity<Object> response = null;
+        petstoreService.updatePet(pet);
         response = u.buildResponseEntity(HttpStatus.NO_CONTENT, pet);
         return response;
     }
@@ -43,7 +46,7 @@ public class PetstoreController {
 
     // Buscar Macota por id
     @GetMapping(value = "/pet/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> findById(@PathVariable int id) {
+    public ResponseEntity<Object> findById(@PathVariable long id) {
         ResponseEntity<Object> response = null;
         Pet pet = petstoreService.findById(id);
         response = u.buildResponseEntity(HttpStatus.OK, pet);
