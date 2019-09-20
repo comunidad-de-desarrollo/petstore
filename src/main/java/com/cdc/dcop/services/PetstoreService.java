@@ -16,10 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PetstoreService implements IPetstoreService {
+public class PetstoreService {
 
     @Autowired
-    private IPetstoreDAO petstoreDAO;
+    private PetRepository petRepository;
+    
 
     @Autowired
     private PetRepository petRepository;
@@ -36,11 +37,22 @@ public class PetstoreService implements IPetstoreService {
     @Override
     public Pet findById(Long id) {
         return petstoreDAO.findById(id);
+	public Pet savePet(Pet pet) {
+		return petRepository.save(pet);
+	}
+	
+	public Pet updatePet(Pet pet) {
+		return petRepository.updatePet(pet);
+	}
+
+   
+    public Pet findById(Long id) {
+        return petRepository.findById(id).orElse(null);
     }
 
-    @Override
+
     public Pet findByStatus(String status) {
-        return petstoreDAO.findByStatus(status);
+        return petRepository.findByStatus(status);
     }
 
     public Pet update(Pet pet, Long id) {

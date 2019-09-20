@@ -1,8 +1,9 @@
 package com.cdc.dcop.utils;
 
-import com.cdc.dcop.entity.Pet;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import com.cdc.dcop.entity.Pet;
 
 public class Utilities {
 
