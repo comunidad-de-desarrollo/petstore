@@ -1,11 +1,16 @@
 package com.cdc.dcop.services;
 
-import com.cdc.dcop.models.Pet;
+import com.cdc.dcop.dto.PetDTO;
+import com.cdc.dcop.entity.Pet;
 
 public interface IPetstoreService {
 
-    public Pet findById(int id);
+    Pet findById(Long id);
 
-    public Pet findByStatus(String status);
+    Pet findByStatus(String status);
+
+    Pet update(Pet pet, Long id);
+
+    PetDTO save(PetDTO pet);
 
 }
