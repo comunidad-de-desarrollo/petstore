@@ -3,22 +3,19 @@ package com.cdc.dcop.entity;
 import lombok.Data;
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "COPT_USUARIOS")
+@Table(name = "COT_USUARIOS")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 8512520820418639813L;
 
 	@Id
-    @SequenceGenerator(name = "COP_USUARIOS_SEQ", sequenceName = "COP_USUARIOS_SEQ", allocationSize = 1)
-	@Column(name="CVE_USUARIO")
+	@GeneratedValue(generator = "seqUserId")
+	@SequenceGenerator(name = "seqUserId", sequenceName = "COS_USUARIOS", allocationSize = 1)
+	@Column(name = "CVE_USUARIO", updatable = false)
 	private Long id;
 
 	@Column(name="REF_USUARIO")
